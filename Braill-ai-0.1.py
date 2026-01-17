@@ -197,8 +197,7 @@ class BraillAI:
             )
             
         except Exception as error:
-            print("Error making emergency call:", error)
-            self.speak("Having trouble calling. Please try manually.")
+            print("")
 
     def set_medication_reminder(self):
         self.speak("Okay! What medicine do you want to be reminded about?")
@@ -351,7 +350,7 @@ class BraillAI:
         except:
             self.speak("Couldn't send message")
             
-    #simple answers when gemini is down
+    #when gemini is down
     def get_simple_answer(self, question):
         # basic responses for common questions
         if "how are you" in question or "how r u" in question:
@@ -379,9 +378,9 @@ class BraillAI:
         else:
             return "I'm not sure about that, but I can help you search on your phone, make calls, or send messages. What would you like?"
     
-    #Gemini AI
+    #Gemini
     def ask_ai(self, question):
-        # Check if we have a valid Gemini key
+        # Check Gemini key
         if not GEMINI_KEY or GEMINI_KEY == "YOUR_NEW_GEMINI_KEY_HERE":
             return self.get_simple_answer(question)
         
@@ -429,9 +428,9 @@ class BraillAI:
     def run(self):
         # Main loop
         self.speak(
-            "Hii! I'm Braill-AI, your companion. "
+            "Hey! I'm Braill-AI, your personal companion. "
             "I can help with calls, messages, medicine reminders, emergencies or just talk. "
-            "So, what you want me to do now?"
+            "just tell me what you want me to do now?"
         )
         
         while True:
@@ -517,6 +516,8 @@ if __name__ == "__main__":
     print("TRYING TO MAKE WORLD A BETTER PLACE")
     print("SPECIAL THANKS TO DROIDRUN TEAM TO MAKE THIS POSSIBLE")
     print("="*50)
+    print("https://droidrun.ai/", "       https://www.mobilerun.ai/")
+    print("="*50)
     print("\nFeatures:")
     print("- Emergency calling (say 'emergency')")
     print("- Medication reminders")
@@ -529,5 +530,6 @@ if __name__ == "__main__":
     assistant = BraillAI()
 
     assistant.run()
+
 
 
