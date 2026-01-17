@@ -491,8 +491,10 @@ class BraillAI:
                     continue
             
             # phone tasks
+            
+            
             phone_words = ['open', 'search', 'find', 'navigate', 'map', 'whatsapp', 
-                          'take a photo', 'launch', 'book', 'order', 'price', 'take me', 'order', 'text']
+                          'take a photo', 'launch', 'book', 'order', 'price', 'take me', 'order', 'text','play','call', 'dial','message','read','scroll','turn on','turn off','switch on','switch off', 'increase','decrease','volume','brightness']
             is_phone_task = False
             for word in phone_words:
                 if word in user_said:
@@ -527,4 +529,5 @@ if __name__ == "__main__":
     assistant = BraillAI()
 
     assistant.run()
+
 
