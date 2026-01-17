@@ -1,4 +1,4 @@
-# 🤖 Braill-AI (Beginner Hackathon Project)
+# 🤖 Braill-AI (Hackathon Project)
 
 > **A simple voice assistant for elderly and visually impaired people**
 > Built using **Python + Droidrun + MobileRun Cloud** for **Droidrun DevSprint 2026**
