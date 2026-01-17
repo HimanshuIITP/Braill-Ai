@@ -202,9 +202,9 @@ Try saying:
 
 We are **3 first-year students** learning AI and Python:
 
-* Member 1 – AI & backend
-* Member 2 – Voice system
-* Member 3 – MobileRun testing
+* Himanshu – AI & backend
+* Debarghyaray – Voice system
+* Samriddha – MobileRun testing
 
 ---
 
