@@ -10,9 +10,9 @@ import threading
 import pyttsx3
 
 # API's
-GEMINI_KEY = "AIzaSyCcG-sLOjqdEQ8of4jfPUdTQlFN4SwHR4A"
-MOBILERUN_KEY = "dr_sk_kklVqxMCwFqxriJABsFXODEtbtqEkvMIfOSkcyhZiQZXtMEWjIeufJzakOauTrUF"
-DEVICE_ID = "c25d454e-2b69-433f-8309-870a9ea3282b"
+GEMINI_KEY = "YOUR_GEMINI_KEY"
+MOBILERUN_KEY = "YOUR_MOBILERUN_KEY"
+DEVICE_ID = "YOUR_DEVICE_ID"
 
 #em contact
 emergency_name = "wife"
@@ -526,4 +526,5 @@ if __name__ == "__main__":
     print("="*50 + "\n")
     
     assistant = BraillAI()
+
     assistant.run()
