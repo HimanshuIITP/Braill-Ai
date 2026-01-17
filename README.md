@@ -134,6 +134,7 @@ If Gemini is not working, Braill-AI still gives basic answers.
 🏗️ How It Works
 User speaks → Speech Recognition → AI Processing → Action Execution
                                         ↓
+   
                            ┌────────────┴────────────┐
                            │                         │
                       Gemini AI              MobileRun Cloud
