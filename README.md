@@ -211,6 +211,6 @@ We made this to help real people, not just for marks 🙂
 
 ---
 
-**Made with love by beginners 🚀**
+**Made with love by DROIDIANS 🚀**
 
-#DroidrunDevSprint #Accessibility #VoiceAI
+#DroidrunDevSprint #Accessibility #VoiceAI #MakingChange
