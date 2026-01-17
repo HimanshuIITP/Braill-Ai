@@ -131,6 +131,19 @@ If Gemini is not working, Braill-AI still gives basic answers.
 | Voice Output  | pyttsx3 (offline TTS)     |
 
 ---
+🏗️ How It Works
+User speaks → Speech Recognition → AI Processing → Action Execution
+                                        ↓
+                           ┌────────────┴────────────┐
+                           │                         │
+                      Gemini AI              MobileRun Cloud
+                    (Conversation)          (Phone Control)
+                           │                         │
+                           └────────────┬────────────┘
+                                        ↓
+                              Text-to-Speech Response
+
+---
 
 ## 📦 How to Run This Project
 
