@@ -429,9 +429,9 @@ class BraillAI:
     def run(self):
         # Main loop
         self.speak(
-            "Hi! I'm Braill-AI, your voice assistant. "
-            "I can help with calls, messages, medicine reminders, and emergencies. "
-            "What do you need?"
+            "Hii! I'm Braill-AI, your companion. "
+            "I can help with calls, messages, medicine reminders, emergencies or just talk. "
+            "So, what you want me to do now?"
         )
         
         while True:
@@ -442,7 +442,7 @@ class BraillAI:
             
             # quit commands
             if "bye" in user_said or "goodbye" in user_said or "exit" in user_said:
-                self.speak("Goodbye! Take care!")
+                self.speak("Goodbye! It felt good helping you!")
                 self.keep_running = False
                 break
             
@@ -451,12 +451,10 @@ class BraillAI:
                 self.emergency_call()
                 continue
             
-            # medicine reminder - need both "reminder" AND medicine keywords
             if ("remind" in user_said or "reminder" in user_said or "set" in user_said) and ("medicine" in user_said or "medication" in user_said or "pill" in user_said or "tablet" in user_said):
                 self.set_medication_reminder()
                 continue
-            
-            # voice notes - save
+           
             if ("remember" in user_said or "note" in user_said or "save" in user_said) and ("this" in user_said or "that" in user_said):
                 self.save_voice_note()
                 continue
@@ -465,13 +463,12 @@ class BraillAI:
             if ("what" in user_said or "tell" in user_said or "read" in user_said) and ("note" in user_said or "remember" in user_said or "saved" in user_said):
                 self.recall_voice_notes()
                 continue
-            
-            # voice notes - clear
+ 
             if ("delete" in user_said or "clear" in user_said or "remove" in user_said) and ("note" in user_said or "notes" in user_said):
                 self.clear_voice_notes()
                 continue
             
-            # call someone
+            # calling
             if "call" in user_said:
                 found_contact = False
                 for contact_name in contacts.keys():
@@ -495,7 +492,7 @@ class BraillAI:
             
             # phone tasks
             phone_words = ['open', 'search', 'find', 'navigate', 'map', 'whatsapp', 
-                          'take a photo', 'launch', 'book', 'order', 'price']
+                          'take a photo', 'launch', 'book', 'order', 'price', 'take me', 'order', 'text']
             is_phone_task = False
             for word in phone_words:
                 if word in user_said:
@@ -514,8 +511,9 @@ class BraillAI:
 # Start
 if __name__ == "__main__":
     print("\n" + "="*50)
-    print("BRAILL-AI Voice Assistant")
-    print("Hackathon Project")
+    print("WELCOME TO BRAILL-AI Assistant")
+    print("TRYING TO MAKE WORLD A BETTER PLACE")
+    print("SPECIAL THANKS TO DROIDRUN TEAM TO MAKE THIS POSSIBLE")
     print("="*50)
     print("\nFeatures:")
     print("- Emergency calling (say 'emergency')")
@@ -523,8 +521,10 @@ if __name__ == "__main__":
     print("- Voice notes (say 'remember this' or 'what did I save')")
     print("- Quick contacts (call/message)")
     print("- Phone control")
+    print("-- By Team Droidians")
     print("="*50 + "\n")
     
     assistant = BraillAI()
 
     assistant.run()
+
