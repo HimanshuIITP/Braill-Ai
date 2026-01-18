@@ -511,13 +511,13 @@ class BraillAI:
 
 # Start
 if __name__ == "__main__":
-    print("\n" + "="*50)
+    print("\n" + "="*55)
     print("WELCOME TO BRAILL-AI Assistant")
     print("TRYING TO MAKE WORLD A BETTER PLACE")
     print("SPECIAL THANKS TO DROIDRUN TEAM TO MAKE THIS POSSIBLE")
-    print("="*50)
+    print("="*55)
     print("https://droidrun.ai/", "       https://www.mobilerun.ai/")
-    print("="*50)
+    print("="*55)
     print("\nFeatures:")
     print("- Emergency calling (say 'emergency')")
     print("- Medication reminders")
@@ -525,11 +525,12 @@ if __name__ == "__main__":
     print("- Quick contacts (call/message)")
     print("- Phone control")
     print("-- By Team Droidians")
-    print("="*50 + "\n")
-    
+    print("="*55 + "\n")
+
     assistant = BraillAI()
 
     assistant.run()
+
 
 
 
