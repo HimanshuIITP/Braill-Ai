@@ -4,7 +4,8 @@
 > Built using **Python + Droidrun + MobileRun Cloud** for **Droidrun DevSprint 2026**
 
 ---
-## 💡 How We Named “Braill-AI”
+
+## 💡 How We Named "Braill-AI"
 
 The name **Braill-AI** is inspired by the **Braille system**, which is used by visually impaired people to read and understand text through touch.
 
@@ -13,6 +14,7 @@ Just like Braille helps blind people access information, our project aims to hel
 So, *Braille + AI = Braill-AI* — a smart assistant designed for accessibility and independence.
 
 ---
+
 ## ❓ What is this project?
 
 Braill-AI is a **voice-based assistant** that helps elderly and visually impaired users use their Android phone **without touching the screen**.
@@ -27,8 +29,8 @@ This is a **student hackathon project**, so the code is simple and beginner-frie
 
 Many elderly and blind users face problems like:
 
-* They can’t see small text
-* They don’t understand smartphone buttons
+* They can't see small text
+* They don't understand smartphone buttons
 * They forget medicines
 * They panic in emergencies
 * They find it hard to call people
@@ -43,7 +45,7 @@ So we made **Braill-AI** to help them using only voice.
 
 Say:
 
-> “Emergency” or “Help”
+> "Emergency" or "Help"
 
 What happens:
 
@@ -51,13 +53,18 @@ What happens:
 * It also sends an emergency SMS
 * Very useful if the user is alone
 
+<p align="center">
+  <img src="screenshots/screenshot6.png" alt="Making emergency call" width="40%">
+  <img src="screenshots/screenshot7.png" alt="Emergency calling feature" width="40%">
+</p>
+
 ---
 
 ### 💊 Medicine Reminder
 
 Say:
 
-> “Remind me to take medicine at 8 AM”
+> "Remind me to take medicine at 8 AM"
 
 Then Braill-AI will:
 
@@ -70,11 +77,15 @@ Then Braill-AI will:
 
 Say:
 
-* “Remember this…”
-* “What did I save?”
-* “Delete my notes”
+* "Remember this…"
+* "What did I save?"
+* "Delete my notes"
 
 This helps people who forget things easily.
+
+<p align="center">
+  <img src="screenshots/screenshot3.png" alt="Voice notes and reminders" width="70%">
+</p>
 
 ---
 
@@ -82,9 +93,9 @@ This helps people who forget things easily.
 
 Say:
 
-* “Call mom”
-* “Message doctor”
-* “Text sister”
+* "Call mom"
+* "Message doctor"
+* "Text sister"
 
 Braill-AI will do it automatically using **MobileRun**.
 
@@ -96,15 +107,21 @@ This is the cool part 😎
 
 You can say things like:
 
-* “Open WhatsApp”
-* “Search hospitals”
-* “Open Google Maps”
-* “Take a photo”
-* “Find restaurants”
+* "Open WhatsApp"
+* "Search hospitals"
+* "Open Google Maps"
+* "Take a photo"
+* "Find restaurants"
 
 Braill-AI sends these commands to **MobileRun Cloud**, which controls your real phone automatically.
 
-So even if the user can’t see the screen, the phone still works.
+So even if the user can't see the screen, the phone still works.
+
+<p align="center">
+  <img src="screenshots/screenshot4.png" alt="MobileRun phone control" width="70%">
+  <br>
+  <img src="screenshots/screenshot5.png" alt="Bluetooth control demo" width="70%">
+</p>
 
 ---
 
@@ -112,9 +129,9 @@ So even if the user can’t see the screen, the phone still works.
 
 We used **Google Gemini AI** so Braill-AI can understand normal human language like:
 
-* “What time is it?”
-* “How are you?”
-* “Where is the nearest hospital?”
+* "What time is it?"
+* "How are you?"
+* "Where is the nearest hospital?"
 
 If Gemini is not working, Braill-AI still gives basic answers.
 
@@ -131,7 +148,10 @@ If Gemini is not working, Braill-AI still gives basic answers.
 | Voice Output  | pyttsx3 (offline TTS)     |
 
 ---
-🏗️ How It Works
+
+## 🗝️ How It Works
+
+```
 User speaks → Speech Recognition → AI Processing → Action Execution
                                         ↓
    
@@ -143,6 +163,15 @@ User speaks → Speech Recognition → AI Processing → Action Execution
                            └────────────┬────────────┘
                                         ↓
                               Text-to-Speech Response
+```
+
+### 📸 Application Screenshots
+
+<p align="center">
+  <img src="screenshots/screenshot1.png" alt="Braill-AI starting up" width="45%">
+  <img src="screenshots/screenshot2.png" alt="Voice listening mode" width="45%">
+</p>
+<p align="center"><em>Braill-AI startup and voice listening mode</em></p>
 
 ---
 
@@ -178,12 +207,12 @@ Then just start speaking 😊
 
 Try saying:
 
-* “Emergency”
-* “Remind me to take medicine at 8 AM”
-* “Remember this”
-* “Call mom”
-* “Open WhatsApp”
-* “What time is it?”
+* "Emergency"
+* "Remind me to take medicine at 8 AM"
+* "Remember this"
+* "Call mom"
+* "Open WhatsApp"
+* "What time is it?"
 
 ---
 
