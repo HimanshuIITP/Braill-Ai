@@ -25,6 +25,16 @@ This is a **student hackathon project**, so the code is simple and beginner-frie
 
 ---
 
+## 📺 Watch Braill-AI in Action
+
+### ▶️ Introduction Video
+[![Braill-AI Intro](https://img.youtube.com/vi/hkN6ZqNRZ78/0.jpg)](https://www.youtube.com/watch?v=hkN6ZqNRZ78)
+
+### ▶️ Live Demo
+[![Braill-AI Demo](https://img.youtube.com/vi/mRNr_SIawlk/0.jpg)](https://youtu.be/mRNr_SIawlk)
+
+---
+
 ## 🚩 Problem We Tried to Solve
 
 Many elderly and blind users face problems like:
