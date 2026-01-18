@@ -28,12 +28,17 @@ This is a **student hackathon project**, so the code is simple and beginner-frie
 ## 📺 Watch Braill-AI in Action
 
 ### ▶️ Introduction Video
-[![Braill-AI Intro](https://img.youtube.com/vi/hkN6ZqNRZ78/0.jpg)](https://www.youtube.com/watch?v=hkN6ZqNRZ78)
+<a href="https://www.youtube.com/watch?v=hkN6ZqNRZ78">
+  <img src="https://img.youtube.com/vi/hkN6ZqNRZ78/0.jpg" width="500">
+</a>
 
 ### ▶️ Live Demo
-[![Braill-AI Demo](https://img.youtube.com/vi/mRNr_SIawlk/0.jpg)](https://youtu.be/mRNr_SIawlk)
+<a href="https://youtu.be/mRNr_SIawlk">
+  <img src="https://img.youtube.com/vi/mRNr_SIawlk/0.jpg" width="500">
+</a>
 
 ---
+
 
 ## 🚩 Problem We Tried to Solve
 
