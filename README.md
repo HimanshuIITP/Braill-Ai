@@ -54,8 +54,8 @@ What happens:
 * Very useful if the user is alone
 
 <p align="center">
-  <img src="screenshots/screenshot6.png" alt="Making emergency call" width="40%">
-  <img src="screenshots/screenshot7.png" alt="Emergency calling feature" width="40%">
+  <img src="screenshots/screenshot6.png" alt="Making emergency call" width="300px">
+  <img src="screenshots/screenshot7.png" alt="Emergency calling feature" width="500px">
 </p>
 
 ---
@@ -84,7 +84,7 @@ Say:
 This helps people who forget things easily.
 
 <p align="center">
-  <img src="screenshots/screenshot3.png" alt="Voice notes and reminders" width="70%">
+  <img src="screenshots/screenshot3.png" alt="Voice notes and reminders" width="600px">
 </p>
 
 ---
@@ -118,9 +118,9 @@ Braill-AI sends these commands to **MobileRun Cloud**, which controls your real 
 So even if the user can't see the screen, the phone still works.
 
 <p align="center">
-  <img src="screenshots/screenshot4.png" alt="MobileRun phone control" width="70%">
+  <img src="screenshots/screenshot4.png" alt="MobileRun phone control" width="600px">
   <br>
-  <img src="screenshots/screenshot5.png" alt="Bluetooth control demo" width="70%">
+  <img src="screenshots/screenshot5.png" alt="Bluetooth control demo" width="600px">
 </p>
 
 ---
@@ -168,8 +168,8 @@ User speaks → Speech Recognition → AI Processing → Action Execution
 ### 📸 Application Screenshots
 
 <p align="center">
-  <img src="screenshots/screenshot1.png" alt="Braill-AI starting up" width="45%">
-  <img src="screenshots/screenshot2.png" alt="Voice listening mode" width="45%">
+  <img src="screenshots/screenshot1.png" alt="Braill-AI starting up" width="500px">
+  <img src="screenshots/screenshot2.png" alt="Voice listening mode" width="500px">
 </p>
 <p align="center"><em>Braill-AI startup and voice listening mode</em></p>
 
