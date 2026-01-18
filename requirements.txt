@@ -2,4 +2,5 @@ speechrecognition
 requests
 mobilerun
 pyttsx3
-pyaudio
+google-generativeai
+pywin32
