@@ -359,7 +359,7 @@ Then open `http://localhost:5000` in your browser.
 
 **For terminal only (old way):**
 ```bash
-python braill_ai_modified.py
+python braill-ai.py
 ```
 
 Then just start speaking 😊
@@ -481,8 +481,6 @@ Round: **2 (Advanced)**
 * Working under hackathon pressure
 * Importance of user testing with actual elderly users
 
-We made this to help real people, not just for marks 🙂
-
 ---
 
 ## 📊 v1 vs v2 Comparison
@@ -506,30 +504,30 @@ We made this to help real people, not just for marks 🙂
 
 ```
 Braill-Ai/
-├── web_app.py                 # Flask server + WebSocket handlers (NEW!)
-├── braill_ai_modified.py      # Core AI engine + voice processing
-├── requirements.txt           # Python dependencies
-├── .env                       # API keys (create this file)
+├── web_app.py                 
+├── braill-ai-V2.py           
+├── requirements.txt          
+├── .env                      
 │
 ├── templates/
-│   └── index.html            # Main web interface (NEW!)
+│   └── index.html           
 │
 ├── static/
 │   ├── css/
-│   │   └── style.css         # Accessibility-focused styling (NEW!)
+│   │   └── style.css       
 │   ├── js/
-│   │   └── app.js            # Frontend logic + Socket.IO (NEW!)
+│   │   └── app.js           
 │   └── images/
 │       └── logo_transparent.png
 │
-├── screenshots/              # Demo images
-│   ├── screenshot1-7.png     # v1 screenshots
-│   └── v2_*.png             # v2 screenshots (NEW!)
+├── screenshots/             
+│   ├── screenshot1-7.png    
+│   └── v2_*.png             
 │
-├── reminders.json            # Auto-created: saved medication reminders
-├── notes.json                # Auto-created: saved voice notes
-├── contacts.json             # Auto-created: contact list (NEW!)
-└── user_profile.json         # Auto-created: emergency profile data (NEW!)
+├── reminders.json           
+├── notes.json               
+├── contacts.json             
+└── user_profile.json         
 ```
 
 It's not perfect but it works and helps people! 🎉
@@ -538,15 +536,13 @@ It's not perfect but it works and helps people! 🎉
 
 ## ❤️ Thanks To
 
-* **Droidrun Team** - For this amazing hackathon opportunity
+* **Droidrun Teamand IIT Patna GDGC Team** - For this amazing hackathon opportunity
 * **mobilerun-sdk Team** - For the awesome phone control SDK
-* **Google** - For Gemini AI, Speech Recognition APIs, and gTTS
-* **OpenAI** - For Whisper speech-to-text model
-* **Stack Overflow** - Saved us countless times 😅
+* **Stack Overflow** -  For saving us
 
 ---
 
-**Made with love by DROIDIANS 🚀**
+**Made with love by TEAM DROIDIANS 🚀**
 
 We're just 3 first-year students trying to make tech accessible for everyone!
 
@@ -557,8 +553,6 @@ We're just 3 first-year students trying to make tech accessible for everyone!
 - **GitHub:** https://github.com/HimanshuIITP/Braill-Ai
 - **v1 Demo Video:** https://www.youtube.com/watch?v=hkN6ZqNRZ78
 - **v2 Demo Video:** https://youtu.be/mRNr_SIawlk
-
-If you find this helpful, give us a ⭐ on GitHub!
 
 ---
 
