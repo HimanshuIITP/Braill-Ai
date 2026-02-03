@@ -17,7 +17,7 @@ braill_instance = None
 is_running = False
 assistant_thread = None
 
-# This class captures terminal output and sends it to the web interface
+# terminal to the web interface
 # Took us forever to figure this out!
 class WebOutputCapture:
     def __init__(self, socketio):
@@ -25,11 +25,9 @@ class WebOutputCapture:
         self.terminal = sys.__stdout__
         
     def write(self, text):
-        # Write to normal terminal
         self.terminal.write(text)
         self.terminal.flush()
         
-        # Also send to web browser
         if text.strip():
             self.socketio.emit('terminal_output', {
                 'text': text.strip(),
@@ -40,13 +38,13 @@ class WebOutputCapture:
         self.terminal.flush()
 
 
-# Main page route
+# Main page
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-# API endpoint to save the configuration
+# save config
 @app.route('/api/save-config', methods=['POST'])
 def save_config():
     """Save API keys - this is where users put their Gemini and Mobilerun keys"""
@@ -76,10 +74,9 @@ def save_profile():
     try:
         data = request.json
         
-        # Save to session
         session['user_profile'] = data
         
-        # Save to JSON file too
+        # Save to JSON file
         with open('user_profile.json', 'w') as f:
             json.dump(data, f, indent=2)
         
@@ -178,7 +175,6 @@ def start_assistant(data):
         # Import BraillAI
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         
-        # Redirect stdout so we can see what's happening
         sys.stdout = WebOutputCapture(socketio)
         
         from braill_ai_v2 import BraillAI
@@ -271,7 +267,7 @@ def handle_command(data):
        
         def execute_command():
             try:
-                #Pause main loop quick act
+                #Pause main loop
                 braill_instance.command_mode = True
                 print(f"[COMMAND MODE] Pausing main loop for: {command}")
                 
