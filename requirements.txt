@@ -1,0 +1,12 @@
+# BraillAI v2.0 - Python Dependencies
+flask 
+flask-socketio 
+openai-whisper 
+SpeechRecognition 
+google-generativeai 
+gTTS 
+pyttsx3 
+mobilerun-sdk 
+sounddevice 
+pygame 
+numpy
