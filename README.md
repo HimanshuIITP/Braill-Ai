@@ -308,10 +308,14 @@ User speaks → Speech Recognition → AI Processing → Action Execution
 
 ## 📦 How to Run This Project
 
-### Step 1: Make virtual envronment and Install packages (Please Use Powershell on Windows)
+### Step 1: Make virtual envronment and Install packages (Please Use Powershell with python 3 or above on Windows)
 
 ```bash
-python3.13 -m venv braill_env && braill_env\Scripts\activate
+python -m venv braill_env 
+```
+
+```bash
+braill_env\Scripts\activate
 ```
 
 ```bash
