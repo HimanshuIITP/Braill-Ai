@@ -308,7 +308,11 @@ User speaks → Speech Recognition → AI Processing → Action Execution
 
 ## 📦 How to Run This Project
 
-### Step 1: Install packages
+### Step 1: Make virtual envronment and Install packages
+
+```bash
+
+```
 
 ```bash
 pip install flask flask-socketio openai-whisper SpeechRecognition google-generativeai gTTS pyttsx3 mobilerun-sdk sounddevice pygame numpy python-socketio
@@ -345,7 +349,7 @@ DEVICE_ID=your_device_id_here
 ```
 
 **Where to get keys:**
-* **Gemini API:** https://makersuite.google.com/app/apikey (free)
+* **Gemini API:** https://aistudio.google.com/api-keys (free)
 * **mobilerun-sdk:** https://mobilerun.cloud (free trial available)
 
 ### Step 3: Run
