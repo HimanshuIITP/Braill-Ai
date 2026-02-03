@@ -319,7 +319,7 @@ braill_env\Scripts\activate
 ```
 
 ```bash
-pip install flask flask-socketio openai-whisper SpeechRecognition google-generativeai gTTS pyttsx3 mobilerun-sdk sounddevice pygame numpy python-socketio
+pip install flask flask-socketio openai-whisper SpeechRecognition google-genai gTTS pyttsx3 mobilerun-sdk sounddevice pygame numpy python-socketio
 ```
 
 Or use requirements.txt:
