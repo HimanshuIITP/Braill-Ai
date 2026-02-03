@@ -9,7 +9,7 @@ from io import StringIO
 import time
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'braill-ai-secret-key-2024'  # TODO: maybe change this later?
+app.config['SECRET_KEY'] = 'braill-ai-secret-key'  # TODO: maybe change this later?
 
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
