@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>BraillAI - Voice Assistant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Socket.IO for real-time communication with backend -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">    
+        <div class="welcome-container">
+            <div class="logo-area">
+                <div class="logo-circle">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="white" stroke-width="2" fill="none"/>
+                        <circle cx="30" cy="40" r="3" fill="white"/>
+                        <circle cx="50" cy="40" r="3" fill="white"/>
+                        <circle cx="70" cy="40" r="3" fill="white"/>
+                        <path d="M 30 65 Q 50 75 70 65" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <h1 class="brand-name">BraillAI</h1>
+                <p class="tagline">Your Voice-Powered Companion for Independence</p>
+            </div>
+            
+            <div class="welcome-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🎤</div>
+                    <div class="feature-text">
+                        <h3>Speak Naturally</h3>
+                        <p>No typing needed. Just talk in Hindi or English</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚨</div>
+                    <div class="feature-text">
+                        <h3>Emergency Ready</h3>
+                        <p>One word to call family with your location & medical info</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💊</div>
+                    <div class="feature-text">
+                        <h3>Never Miss Medicine</h3>
+                        <p>Voice reminders at the right time, every day</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍👩‍👧</div>
+                    <div class="feature-text">
+                        <h3>Family Stays Connected</h3>
+                        <p>Your loved ones can monitor and help remotely</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="primary-btn" onclick="goToProfileSelector()">
+                <span>Get Started - It's Easy!</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <p class="welcome-footer">Designed for elderly & visually impaired users</p>
+            <div class="team-credit">
+                By Team <strong>Droidians</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Selector Screen -->
+    <div id="profile-selector-screen" class="screen">
+        <div class="profile-selector-container">
+            <button class="back-btn" onclick="goToWelcome()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Back
+            </button>
+            
+            <h2 class="selector-title">Select Profile</h2>
+            <p class="selector-subtitle">Choose an existing profile or create a new one</p>
+            
+            <div id="profiles-grid" class="profiles-grid">
+            </div>
+            
+            <button class="add-profile-btn" onclick="createNewProfile()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Create New Profile</span>
+            </button>
+            
+            <div class="team-credit">
+                By Team <strong>Droidians</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Setup Screen -->
+    <div id="setup-screen" class="screen">
+        <div class="setup-container">
+            <button class="back-btn" onclick="goToProfileSelector()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Back
+            </button>
+            
+            <h2 class="setup-title">Let's Get You Set Up</h2>
+            <p class="setup-subtitle">We need a few technical details to connect BraillAI to your phone. Don't worry, we'll guide you through it!</p>
+            
+            <!-- Voice Control Toggle -->
+            <div class="voice-control-toggle">
+                <button class="voice-toggle-btn" onclick="toggleVoiceSetup()" id="voice-setup-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 19V23M8 23H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Enable Voice Input</span>
+                </button>
+            </div>
+            
+            <form id="config-form" class="config-form">
+                <div class="form-group">
+                    <label for="gemini-key">
+                        <span class="label-text">Gemini API Key</span>
+                        <span class="label-hint">Required for AI conversations</span>
+                    </label>
+                    <div class="input-with-voice">
+                        <input 
+                            type="text" 
+                            id="gemini-key" 
+                            name="gemini_key" 
+                            placeholder="AIzaSy..." 
+                            required
+                        >
+                        <button type="button" class="voice-input-btn" onclick="startVoiceInput('gemini-key')" title="Speak to fill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mobilerun-key">
+                        <span class="label-text">Mobilerun API Key</span>
+                        <span class="label-hint">Required for phone features</span>
+                    </label>
+                    <div class="input-with-voice">
+                        <input 
+                            type="text" 
+                            id="mobilerun-key" 
+                            name="mobilerun_key" 
+                            placeholder="dr_sk_..." 
+                            required
+                        >
+                        <button type="button" class="voice-input-btn" onclick="startVoiceInput('mobilerun-key')" title="Speak to fill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="device-id">
+                        <span class="label-text">Device ID</span>
+                        <span class="label-hint">Your mobile device identifier</span>
+                    </label>
+                    <div class="input-with-voice">
+                        <input 
+                            type="text" 
+                            id="device-id" 
+                            name="device_id" 
+                            placeholder="3cbd4790-..." 
+                            required
+                        >
+                        <button type="button" class="voice-input-btn" onclick="startVoiceInput('device-id')" title="Speak to fill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-btn">
+                    <span>Save & Continue</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </form>
+            
+            <div class="team-credit">
+                By Team <strong>Droidians</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Screen-->
+    <div id="profile-screen" class="screen">
+        <button class="text-size-toggle" onclick="toggleTextSize()" title="Increase Text Size">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <text x="4" y="18" font-size="12" fill="currentColor" font-weight="bold">A</text>
+                <text x="14" y="20" font-size="16" fill="currentColor" font-weight="bold">A</text>
+            </svg>
+        </button>
+        
+        <div class="setup-container">
+            <button class="back-btn" onclick="goToSetup()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Back
+            </button>
+            
+            <h2 class="setup-title">Your Profile</h2>
+            <p class="setup-subtitle">This information will be used for emergency situations</p>
+            
+                        
+            <!-- Voice Control Toggle -->
+            <div class="voice-control-toggle">
+                <button class="voice-toggle-btn" onclick="toggleVoiceSetup()" id="voice-profile-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 19V23M8 23H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Enable Voice Input</span>
+                </button>
+            </div>
+            
+            <form id="profile-form" class="config-form">
+                <div class="form-group">
+                    <label for="user-name">
+                        <span class="label-text">Full Name</span>
+                        <span class="label-hint">Your complete name</span>
+                    </label>
+                    <div class="input-with-voice">
+                        <input 
+                            type="text" 
+                            id="user-name" 
+                            name="user_name" 
+                            placeholder="John Doe" 
+                            required
+                        >
+                        <button type="button" class="voice-input-btn" onclick="startVoiceInput('user-name')" title="Speak to fill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-dob">
+                        <span class="label-text">Date of Birth</span>
+                        <span class="label-hint">DD/MM/YYYY</span>
+                    </label>
+                    <input 
+                        type="date" 
+                        id="user-dob" 
+                        name="user_dob" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-blood">
+                        <span class="label-text">Blood Group</span>
+                        <span class="label-hint">e.g., A+, O-, B+</span>
+                    </label>
+                    <select id="user-blood" name="user_blood" required>
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-address">
+                        <span class="label-text">Address</span>
+                        <span class="label-hint">Current residential address</span>
+                    </label>
+                    <div class="input-with-voice">
+                        <textarea 
+                            id="user-address" 
+                            name="user_address" 
+                            placeholder="123 Street, City, State, PIN" 
+                            rows="3"
+                            required
+                        ></textarea>
+                        <button type="button" class="voice-input-btn" onclick="startVoiceInput('user-address')" title="Speak to fill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="emergency-section">
+                    <h3>Emergency Contact</h3>
+                    <p class="section-hint">This person will be contacted in case of emergency</p>
+                    
+                    <div class="form-row-double">
+                        <div class="form-group">
+                            <label for="emergency-name">
+                                <span class="label-text">Contact Name</span>
+                            </label>
+                            <div class="input-with-voice">
+                                <input 
+                                    type="text" 
+                                    id="emergency-name" 
+                                    name="emergency_name" 
+                                    placeholder="e.g., Wife, Brother" 
+                                    required
+                                >
+                                <button type="button" class="voice-input-btn" onclick="startVoiceInput('emergency-name')" title="Speak to fill">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emergency-number">
+                                <span class="label-text">Phone Number</span>
+                            </label>
+                            <div class="input-with-voice">
+                                <input 
+                                    type="tel" 
+                                    id="emergency-number" 
+                                    name="emergency_number" 
+                                    placeholder="+919876543210" 
+                                    required
+                                >
+                                <button type="button" class="voice-input-btn" onclick="startVoiceInput('emergency-number')" title="Speak to fill">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12V10" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-btn">
+                    <span>Complete Setup</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 10L9 14L19 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </form>
+            
+            <div class="team-credit">
+                By Team <strong>Droidians</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dash -->
+    <div id="dashboard-screen" class="screen">
+        <div class="dashboard-container">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="header-title-section">
+                        <h1 class="dashboard-title">BraillAI</h1>
+                        <p class="user-greeting" id="user-greeting">Hello, User</p>
+                    </div>
+                    <div class="status-badge" id="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Ready</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button class="icon-btn" onclick="openProfileSwitcher()" title="Switch Profile">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 17C2 13.134 5.134 10 9 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M14 13L16 15L14 17M16 15H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" onclick="openContactModal()" title="Manage Contacts">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 20C2 15.5817 5.58172 12 10 12C14.4183 12 18 15.5817 18 20" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" onclick="goToProfile()" title="Edit Profile">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M14 2L18 6L7 17H3V13L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" onclick="goToSetup()" title="Settings">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.5 4.5L14 6M6 14L4.5 15.5M15.5 15.5L14 14M6 6L4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dash Summary -->
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <div class="summary-icon">📅</div>
+                    <div class="summary-content">
+                        <div class="summary-label">Today</div>
+                        <div class="summary-value" id="summary-date">Loading...</div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">⏰</div>
+                    <div class="summary-content">
+                        <div class="summary-label">Reminders</div>
+                        <div class="summary-value" id="summary-reminders">0</div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">📝</div>
+                    <div class="summary-content">
+                        <div class="summary-label">Notes</div>
+                        <div class="summary-value" id="summary-notes">0</div>
+                    </div>
+                </div>
+                
+                <div class="summary-card summary-card-toggle" onclick="toggleLargeFont()">
+                    <div class="summary-icon">🔤</div>
+                    <div class="summary-content">
+                        <div class="summary-label">Large Font</div>
+                        <div class="summary-value" id="font-toggle-status">OFF</div>
+                    </div>
+                    <div class="toggle-indicator" id="font-toggle-indicator"></div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="dashboard-main">
+                <!-- Quick Actions Panel -->
+                <aside class="quick-actions">
+                    <h3 class="panel-title">Quick Actions</h3>
+                    
+                    <div class="action-grid">
+                        <button class="action-card" onclick="sendCommand('emergency')">
+                            <div class="action-icon emergency">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span class="action-label">Emergency</span>
+                        </button>
+                        
+                        <button class="action-card" onclick="sendCommand('reminder')">
+                            <div class="action-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="action-label">Reminder</span>
+                        </button>
+                        
+                        <button class="action-card" onclick="sendCommand('note')">
+                            <div class="action-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span class="action-label">Save Note</span>
+                        </button>
+                        
+                        <button class="action-card" onclick="sendCommand('read_notes')">
+                            <div class="action-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M2 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7V21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H2V3Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M22 3H16C14.9391 3 13.9217 3.42143 13.1716 4.17157C12.4214 4.92172 12 5.93913 12 7V21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H22V3Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span class="action-label">Read Notes</span>
+                        </button>
+                        
+                        <button class="action-card" onclick="sendCommand('call')">
+                            <div class="action-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 16.92V19.92C22.0011 20.4583 21.7587 20.9717 21.3346 21.3303C20.9106 21.6889 20.3467 21.8581 19.8082 21.7961C16.5408 21.3745 13.4389 20.1455 10.7843 18.2154C8.36163 16.4727 6.36781 14.1789 4.97843 11.5154C3.04943 8.68925 1.88353 5.48127 1.56843 2.13539C1.51166 1.56753 1.67455 0.992632 2.02009 0.544764C2.36564 0.096896 2.86381 -0.134819 3.38843 -0.114393H6.38843C7.22788 -0.123079 7.94171 0.443683 8.06843 1.20539C8.18629 2.01674 8.39484 2.81519 8.68843 3.58539C8.91843 4.18539 8.77843 4.85539 8.33843 5.29539L7.08843 6.54539C8.67743 9.11539 10.8984 11.3354 13.4684 12.9254L14.7184 11.6754C15.1584 11.2354 15.8284 11.0954 16.4284 11.3254C17.1986 11.619 17.9971 11.8275 18.8084 11.9454C19.585 12.0739 20.1625 12.8063 20.1484 13.6654V16.9254L22 16.92Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span class="action-label">Make Call</span>
+                        </button>
+                        
+                        <button class="action-card" onclick="sendCommand('message')">
+                            <div class="action-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span class="action-label">Message</span>
+                        </button>
+                    </div>
+                    
+                    <div class="control-section">
+                        <button id="start-btn" class="control-btn start-btn" onclick="startAssistant()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 3L15 10L5 17V3Z" fill="currentColor"/>
+                            </svg>
+                            <span>Start Assistant</span>
+                        </button>
+                        
+                        <button id="stop-btn" class="control-btn stop-btn" onclick="stopAssistant()" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <rect x="5" y="5" width="10" height="10" fill="currentColor"/>
+                            </svg>
+                            <span>Stop Assistant</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Reminders List Section -->
+                    <div class="reminders-section">
+                        <div class="section-header">
+                            <h3 class="section-title">📋 Your Reminders</h3>
+                            <button class="refresh-btn" onclick="loadReminders()" title="Refresh">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21.5 2V8M21.5 8H15.5M21.5 8L18 4.5C16.7429 3.24286 15.1069 2.44205 13.3525 2.22137C11.5981 2.00069 9.8172 2.37262 8.28534 3.27982C6.75348 4.18703 5.55379 5.57824 4.86621 7.23899C4.17862 8.89974 4.03859 10.7405 4.47004 12.4876C4.90149 14.2348 5.88286 15.7967 7.26949 16.938C8.65613 18.0794 10.3727 18.7368 12.1667 18.8127C13.9607 18.8886 15.7282 18.3791 17.2067 17.3591C18.6851 16.3391 19.7918 14.8621 20.362 13.1533" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="reminders-list" class="reminders-list">
+                            <div class="empty-state">No reminders set yet</div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- live Panel -->
+                <main class="conversation-panel">
+                    <h3 class="panel-title">Live Conversation</h3>
+                    
+                    <!-- Emergency Alert -->
+                    <div id="emergency-alert" class="emergency-alert" style="display: none;">
+                        <div class="emergency-header">
+                            <span class="emergency-icon">🚨</span>
+                            <span class="emergency-title">EMERGENCY ACTIVATED</span>
+                        </div>
+                        <div class="emergency-body">
+                            <div class="emergency-info">
+                                <div class="info-row">
+                                    <span class="info-label">Name:</span>
+                                    <span class="info-value" id="alert-name">—</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Blood Group:</span>
+                                    <span class="info-value" id="alert-blood">—</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Address:</span>
+                                    <span class="info-value" id="alert-address">—</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Calling:</span>
+                                    <span class="info-value" id="alert-contact">—</span>
+                                </div>
+                            </div>
+                            <div class="emergency-status">
+                                <div class="pulse-indicator"></div>
+                                <span>Emergency call in progress...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="conversation-feed" class="conversation-feed">
+                        <div class="system-message">
+                            <p>🎙️ Conversation will appear here when you start the assistant</p>
+                        </div>
+                    </div>
+                    
+                    <div class="conversation-status">
+                        <span id="listening-indicator" class="listening-indicator">
+                            <span class="pulse"></span>
+                            Ready to listen
+                        </span>
+                    </div>
+                    
+                    <!-- Credit-->
+                    <div class="team-credit">
+                        By Team <strong>Droidians</strong>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+
+
+    <!-- Contact Management Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📞 Manage Contacts</h2>
+                <button class="close-btn" onclick="closeContactModal()">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Add New Contact -->
+                <div class="add-contact-section">
+                    <h3>Add New Contact</h3>
+                    <form id="add-contact-form" onsubmit="addContact(event)">
+                        <div class="form-row">
+                            <input 
+                                type="text" 
+                                id="contact-name" 
+                                placeholder="Contact Name (e.g., Mom, Dad, Doctor)" 
+                                required
+                            >
+                            <input 
+                                type="tel" 
+                                id="contact-number" 
+                                placeholder="Phone Number (e.g., +919876543210)" 
+                                required
+                            >
+                            <button type="submit" class="add-btn">Add</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Contact List -->
+                <div class="contacts-list-section">
+                    <h3>Saved Contacts</h3>
+                    <div id="contacts-list" class="contacts-list">
+                        <div class="empty-state">No contacts yet. Add one above!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call/Message-->
+    <div id="action-modal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2 id="action-modal-title">📞 Select Contact</h2>
+                <button class="close-btn" onclick="closeActionModal()">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="action-contacts-list" class="action-contacts-list">
+                    <div class="empty-state">No contacts available</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Switcher -->
+    <div id="profile-switcher-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>👤 Switch Profile</h2>
+                <button class="close-btn" onclick="closeProfileSwitcher()">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="profile-switcher-list" class="profile-switcher-list">
+                </div>
+                <button class="add-profile-btn-modal" onclick="createNewProfileFromSwitcher()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Create New Profile</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
