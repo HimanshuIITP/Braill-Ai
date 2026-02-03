@@ -181,7 +181,7 @@ def start_assistant(data):
         # Redirect stdout so we can see what's happening
         sys.stdout = WebOutputCapture(socketio)
         
-        from braill_ai_modified import BraillAI
+        from braill-ai-V2 import BraillAI
         
         braill_instance = BraillAI()
         
@@ -201,7 +201,7 @@ def start_assistant(data):
                 with open('user_profile.json', 'r') as f:
                     profile = json.load(f)
                     #update emergency contact
-                    from braill_ai_modified import EMERGENCY_CONTACT
+                    from braill-ai-V2 import EMERGENCY_CONTACT
                     EMERGENCY_CONTACT['name'] = profile.get('emergency_name', 'emergency')
                     EMERGENCY_CONTACT['number'] = profile.get('emergency_number', '')
                     print(f"Loaded profile for: {profile.get('name')}")
