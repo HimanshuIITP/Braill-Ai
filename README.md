@@ -20,7 +20,7 @@ So, *Braille + AI = Braill-AI* — a smart assistant designed for accessibility 
 
 | Introduction | Live Demo |
 |-------------|-----------|
-| <a href="https://www.youtube.com/watch?v=hkN6ZqNRZ78"><img src="https://img.youtube.com/vi/hkN6ZqNRZ78/0.jpg" width="450"></a> | <a href="https://youtu.be/mRNr_SIawlk"><img src="https://img.youtube.com/vi/mRNr_SIawlk/0.jpg" width="450"></a> |
+| <a href="https://youtu.be/ScWITqB4-uE"><img src="https://i9.ytimg.com/vi_webp/ScWITqB4-uE/mqdefault.webp?v=6981ff89&sqp=CMDyicwG&rs=AOn4CLB1w32XPQGTOUewZ25fs09WdvPVHA" width="470"></a> | <a href="https://youtu.be/eXPtFaalpMQ"><img src="https://i9.ytimg.com/vi_webp/eXPtFaalpMQ/sddefault.webp?v=69827913&sqp=CMDyicwG&rs=AOn4CLD7iBtpioD9FrQ_z5AXJnADld79dQ" width="400"></a> |
 
 ---
 
@@ -542,7 +542,7 @@ It's not perfect but it works and helps people! 🎉
 
 ---
 
-## ❤️ Thanks To
+## ❤️ Special Thanks To
 
 * **Droidrun Teamand IIT Patna GDGC Team** - For this amazing hackathon opportunity
 * **mobilerun-sdk Team** - For the awesome phone control SDK
@@ -559,8 +559,8 @@ We're just 3 first-year students trying to make tech accessible for everyone!
 ## 🔗 Links
 
 - **GitHub:** https://github.com/HimanshuIITP/Braill-Ai
-- **v1 Demo Video:** https://www.youtube.com/watch?v=hkN6ZqNRZ78
-- **v2 Demo Video:** https://youtu.be/mRNr_SIawlk
+- **v1 Demo Video:** https://youtu.be/mRNr_SIawlk
+- **v2 Demo Video:** https://youtu.be/eXPtFaalpMQ
 
 ---
 
