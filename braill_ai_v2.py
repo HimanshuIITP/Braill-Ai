@@ -15,7 +15,7 @@ import pyttsx3
 from mobilerun import Mobilerun
 
 #API
-# Load from environment variables
+# Load environment variables
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 MOBILERUN_KEY = os.getenv("MOBILERUN_KEY", "")
 DEVICE_ID = os.getenv("DEVICE_ID", "")
@@ -42,7 +42,7 @@ CONTACTS = {
 #Gemini
 genai_client = genai.Client(api_key=GEMINI_API_KEY)
 
-# Load persistence files
+# Load files
 if not os.path.exists(REMINDER_FILE):
     with open(REMINDER_FILE, "w") as f:
         json.dump([], f)
