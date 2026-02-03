@@ -9,7 +9,7 @@ from io import StringIO
 import time
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'braill-ai-secret-key'  # TODO: maybe change this later?
+app.config['SECRET_KEY'] = 'braill-ai-secret-key-2024'  # TODO: maybe change this later?
 
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
@@ -181,7 +181,7 @@ def start_assistant(data):
         # Redirect stdout so we can see what's happening
         sys.stdout = WebOutputCapture(socketio)
         
-        from braill_ai_V2 import BraillAI
+        from braill_ai_v2 import BraillAI
         
         braill_instance = BraillAI()
         
@@ -201,7 +201,7 @@ def start_assistant(data):
                 with open('user_profile.json', 'r') as f:
                     profile = json.load(f)
                     #update emergency contact
-                    from braill_ai_V2 import EMERGENCY_CONTACT
+                    from braill_ai_v2 import EMERGENCY_CONTACT
                     EMERGENCY_CONTACT['name'] = profile.get('emergency_name', 'emergency')
                     EMERGENCY_CONTACT['number'] = profile.get('emergency_number', '')
                     print(f"Loaded profile for: {profile.get('name')}")
