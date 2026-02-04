@@ -54,9 +54,11 @@ We took feedback from Round 1 and made it **way better**!
 ---
 ## 📱 Mobile App Currently Under Development 🛠️
 <p align="center">
-  <img src="screenshots/p.png" alt="Old terminal version" width="450">
-  <img src="screenshots/pp.png" alt="New web interface" width="450">
+  <img src="screenshots/p.png" alt="launch" width="200">
+  <img src="screenshots/pp.png" alt="Home" width="450">
 </p>
+<p align="center"><em>Launch Screen And Home Screen</em></p>
+
 ---
 
 ## 🚩 Problem We Tried to Solve
