@@ -20,7 +20,7 @@ So, *Braille + AI = Braill-AI* — a smart assistant designed for accessibility 
 
 | Introduction | Live Demo |
 |-------------|-----------|
-| <a href="https://youtu.be/ScWITqB4-uE"><img src="https://i9.ytimg.com/vi_webp/ScWITqB4-uE/mqdefault.webp?v=6981ff89&sqp=CMDyicwG&rs=AOn4CLB1w32XPQGTOUewZ25fs09WdvPVHA" width="470"></a> | <a href="https://youtu.be/eXPtFaalpMQ"><img src="https://i9.ytimg.com/vi_webp/eXPtFaalpMQ/sddefault.webp?v=69827913&sqp=CMDyicwG&rs=AOn4CLD7iBtpioD9FrQ_z5AXJnADld79dQ" width="400"></a> |
+| <a href="https://youtu.be/ScWITqB4-uE"><img src="https://img.youtube.com/vi/ScWITqB4-uE/0.jpg" width="470"></a> | <a href="https://youtu.be/eXPtFaalpMQ"><img src="https://img.youtube.com/vi/eXPtFaalpMQ/0.jpg" width="400"></a> |
 
 ---
 
