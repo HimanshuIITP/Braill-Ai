@@ -52,6 +52,12 @@ We took feedback from Round 1 and made it **way better**!
 <p align="center"><em>v1 Terminal Interface vs v2 Web Interface</em></p>
 
 ---
+## 📱 Mobile App Currently Under Development 🛠️
+<p align="center">
+  <img src="screenshots/p.png" alt="Old terminal version" width="450">
+  <img src="screenshots/pp.png" alt="New web interface" width="450">
+</p>
+---
 
 ## 🚩 Problem We Tried to Solve
 
