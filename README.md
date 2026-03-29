@@ -1,4 +1,4 @@
-# 🤖 Braill-AI v2.0 (Hackathon Round 2)
+# 🤖 Braill-AI v2.0
 
 > **A voice assistant for elderly and visually impaired people**  
 > Now with a **web interface** so families can help too!  
@@ -24,7 +24,7 @@ So, *Braille + AI = Braill-AI* — a smart assistant designed for accessibility 
 
 ---
 
-## 🆕 What's New in v2? (Round 2 Update)
+## 🆕 What's New in v2?
 
 We took feedback from Round 1 and made it **way better**!
 
